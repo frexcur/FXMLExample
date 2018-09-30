@@ -10,10 +10,10 @@ public interface Item {
 
   void setName(String name);
 
-  String getName(String name);
+  String getName();
 
-  Date getManufactureDate(Date manuDate);
+  Date getManufactureDate();
 
-  int getSerialNumber(int num);
+  int getSerialNumber();
   }
 }
