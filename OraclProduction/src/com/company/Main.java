@@ -9,9 +9,21 @@
 package com.company;
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
 
   public static void main(String[] args) {
-    // write your code here
+
+    ArrayList products = new ArrayList<>();
+
+    products.addAll(DriverCollections.testCollection());
+    Collections.sort(products);
+    DriverCollections.print(products);
+    DriverCollections.printType(products);
+
   }
+
 }

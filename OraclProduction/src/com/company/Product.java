@@ -14,28 +14,31 @@ package com.company;
 
 import java.util.Date;
 
-public abstract class Product implements Item {
+public abstract class Product implements Item, Comparable<Product>{
 
   // Starting production number at 1
-  int currentProductionNumber = 1;
-  int serialNumber;
-  Date manufacturedOn;
-  String name;
+  private static int currentProductionNumber = 1;
+  private String manufacturer;
+  private int serialNumber;
+  private Date manufacturedOn;
+  private String name;
 
   public Product(String name) {
     this.name = name;
     // Setting the serial number to the current production number
     serialNumber = currentProductionNumber;
 
-    // Incrementing production number
+    //Incrementing currentProductionNumber
     currentProductionNumber++;
 
     // Setting date to current date
     manufacturedOn = new Date(System.currentTimeMillis());
+
+    manufacturer = Item.manufacturer;
   }
 
-  public void setProductionNumber(int newValue) {
-    currentProductionNumber = newValue;
+  public void setProductionNumber(int productionNumber) {
+    currentProductionNumber = productionNumber;
   }
 
   // Setting name for product
@@ -49,8 +52,8 @@ public abstract class Product implements Item {
   }
 
   public Date getManufactureDate() {
-    //Malicious code vulnerability
-    return manufacturedOn;
+    Date manuOn = manufacturedOn;
+    return manuOn;
   }
 
   public int getSerialNumber() {
@@ -67,5 +70,10 @@ public abstract class Product implements Item {
         "Serial Number: " + serialNumber + "\n" +
         "Date: " + manufacturedOn + "\n" +
         "Name: " + name + "\n";
+  }
+
+  @Override
+  public int compareTo(Product p){
+    return name.compareTo(p.getName());
   }
 }

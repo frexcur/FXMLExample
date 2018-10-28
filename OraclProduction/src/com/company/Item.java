@@ -16,7 +16,7 @@ public interface Item {
 
   String manufacturer = "OraclProdction";
 
-  void setProductionNumber(int newValue);
+  void setProductionNumber(int productionNumber);
 
   void setName(String name);
 
